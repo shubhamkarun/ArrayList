@@ -29,19 +29,26 @@ public class Solution {
         
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
-
+        
+        //Create list of lists for storing each line as a new ArrayList within the parent ArrayList.
         ArrayList <ArrayList<Integer>> list = new ArrayList <ArrayList<Integer>>();
         
         for(int i=1; i<=n; i++)
         {
             ArrayList<Integer> list1 = new ArrayList<Integer>();
+            
+            //Take the first input as a variable in order to determine the size of the given line, within for loop.
             int d = scan.nextInt();
+            
+            //loop into each lines for storing the inputs as an arraylist
             for (int j=1; j<=d; j++)
             {
                 list1.add(scan.nextInt());
             }
+            //Now add the above arraylist created(for each line) into the parent arraylist.
             list.add(list1);
         }
+        //Take the input as a variable in order to determine the number of queries to be interated within for loop.
         int q = scan.nextInt();
         for(int k=0; k<q; k++)
         {
@@ -51,6 +58,7 @@ public class Solution {
             {
                 System.out.println(list.get(a-1).get(b-1));
             }
+            //Catch the exception of indexOutOfBound in order to display the "ERROR!" string.
             catch(Exception e)
             {
                 System.out.println("ERROR!");
