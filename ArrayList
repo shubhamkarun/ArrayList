@@ -1,4 +1,4 @@
-<!--
+/**
 Link to problem: https://www.hackerrank.com/challenges/java-arraylist/problem?isFullScreen=true
 
 Sometimes it's better to use dynamic size arrays. Java's Arraylist can provide you this feature. Try to solve this problem using Arraylist.
@@ -15,7 +15,7 @@ Total number of integers in  lines will not cross .
 
 Output Format
 In each line, output the number located in  position of  line. If there is no such position, just print "ERROR!"
--->
+**/
 
 import java.io.*;
 import java.util.*;
@@ -67,3 +67,80 @@ public class Solution {
         }
     }
 }
+
+/**
+Link to problem: https://www.hackerrank.com/challenges/java-list/problem?isFullScreen=true 
+
+Insert
+x y
+Delete
+x
+
+Given a list, , of  integers, perform  queries on the list. Once all queries are completed, print the modified list as a single line of space-separated integers.
+
+Input Format:
+
+The first line contains an integer,  (the initial number of elements in ).
+The second line contains  space-separated integers describing .
+The third line contains an integer,  (the number of queries).
+The  subsequent lines describe the queries, and each query is described over two lines:
+
+If the first line of a query contains the String Insert, then the second line contains two space separated integers , and the value  must be inserted into  at index .
+If the first line of a query contains the String Delete, then the second line contains index , whose element must be deleted from .
+
+Each element in is a 32-bit integer.
+
+Print the updated list  as a single line of space-separated integers.
+
+**/
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        
+        //Create list for storing the list input
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        
+        for(int i=1; i<=n; i++)
+        {
+            list.add(scan.nextInt());
+        }
+        //Take the input as a variable in order to determine the number of queries to be interated within for loop.
+        int q = scan.nextInt();
+
+        for(int i=0; i<q; i++)
+        {   
+            //store the string as variable first, and then implement in if-else condition
+            String action = scan.next();
+
+            //if action is Insert, we need to add element at the given index
+            if(action.equals("Insert"))
+            {
+                int x = scan.nextInt();
+                int y = scan.nextInt();
+                list.add(x, y); 
+            }
+            //if action is Delete, we need to remove element from the given index
+            else if(action.equals("Delete"))
+            {
+                int x = scan.nextInt();
+                list.remove(x);
+            }
+        }
+        //print the list as space seperated integers
+        for(int i=0; i<list.size(); i++)
+        {
+            System.out.print(list.get(i)+" ");
+        }
+    }
+}
+
